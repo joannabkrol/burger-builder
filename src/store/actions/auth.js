@@ -54,7 +54,7 @@ export const auth = (email, password, isSignup) => {
         }
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
+            //console.log(response);
             //local Storage is build-in bowser option and will help to not log out user after refreshing the page
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
             localStorage.setItem('token', response.data.idToken);
@@ -64,7 +64,7 @@ export const auth = (email, password, isSignup) => {
             dispatch(checkAuthTimeout(response.data.expiresIn));
         })
         .catch(err => {
-            console.log(err);
+            //console.log(err);
             // this element: response.data.error is due to axios
             dispatch(authFail(err.response.data.error));
         })
