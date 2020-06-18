@@ -24,12 +24,11 @@ const asyncAuth = asyncComponent(() => {
 });
 //-----
 
-class App extends Component {
+const App = () => {
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
 
-  render () {
     let routes = (
       <Switch>
         <Route path="/auth" component={asyncAuth}/>
@@ -58,7 +57,6 @@ class App extends Component {
       </Layout>
       </div>
     );
-  }
 }
 const mapStateToProps = state => {
   return {
